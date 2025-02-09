@@ -2,7 +2,7 @@ package Prefix_Sum;
 
 import java.util.HashMap;
 // Length of longest subarray when it contains both positive and negative elements
-public class longest_subarray {
+public class longest_subarray_pos_neg {
     public static int lenOfLongSubarr(int a[], int n, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
         int sum = 0;
