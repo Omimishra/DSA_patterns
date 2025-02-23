@@ -1,7 +1,5 @@
 package Prefix_Sum;
-
 import java.util.*;
-
 public class max_subarrays_with_sum_k {
     public static int countSubarraysWithSumK(int[] nums, int k) {
         int n = nums.length;
@@ -20,10 +18,29 @@ public class max_subarrays_with_sum_k {
         }
         return count;
     }
-
+// Iteration 1 (i = 0):
+// sum = 1
+// rem = 1 - 0 = 1
+// map.containsKey(1) → false
+// map.put(1, map.getOrDefault(1, 0) + 1) → map.put(1, 1)
+// map is now {0: 1, 1: 1}
+// Iteration 2 (i = 1):
+//  sum = 0
+// rem = 0 - 0 = 0
+// map.containsKey(0) → true
+// count += map.get(0) → count += 1 → count = 1
+// map.put(0, map.getOrDefault(0, 0) + 1) → map.put(0, 2)
+// map is now {0: 2, 1: 1}
+// Iteration 3 (i = 2):
+// sum = 0
+// rem = 0 - 0 = 0
+// map.containsKey(0) → true
+// count += map.get(0) → count += 2 → count = 3
+// map.put(0, map.getOrDefault(0, 0) + 1) → map.put(0, 3)
+// map is now {0: 3, 1: 1}
     public static void main(String[] args) {
-        int[] nums = {1, 1, 1};
-        int k = 2;
+        int[] nums = {1, -1, 0};
+        int k = 0;
         System.out.println(countSubarraysWithSumK(nums, k)); // Output: 2
     }
 }
